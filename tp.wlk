@@ -2,7 +2,7 @@ class Guerrero{
     const property potencialOfensivo
     const energiaInicial
     var experiencia = 0
-    var property energia = energiaInicial
+    var energia = energiaInicial
     var property trajeEquipado
     
     
@@ -103,6 +103,10 @@ class TrajeModularizado inherits Traje{
         return piezas.size()
     }
 
+    override method aumentarDesgaste() {
+    piezas.forEach({ pieza => pieza.aumentarDesgaste() })
+}
+
 }
 
 class Pieza{
@@ -113,6 +117,10 @@ class Pieza{
     method estaGastado(){
         return desgaste >= 20
     }
+
+    method aumentarDesgaste() {
+    desgaste += 5
+}
     
 }
 
